@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#171a1d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Cybits" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Cybits</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icons/icon-180.png" />
+  <link rel="icon" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app-shell" aria-label="Cybits digital pet">
+    <header class="brandbar">
+      <div>
+        <span class="eyebrow">POCKET CYBER PET</span>
+        <h1>CYBITS</h1>
+      </div>
+      <button id="soundBtn" class="mini-btn" aria-label="Toggle sound">SFX ON</button>
+    </header>
+
+    <section class="device" aria-live="polite">
+      <div class="device-top">
+        <span id="clockLabel">DAY 0 · 00:00</span>
+        <span id="signalLabel">LINK READY</span>
+      </div>
+
+      <div class="screen-wrap">
+        <div class="screen-bezel">
+          <canvas id="petCanvas" width="160" height="144" aria-label="Cybit display"></canvas>
+          <div id="screenOverlay" class="screen-overlay hidden"></div>
+        </div>
+      </div>
+
+      <div class="nameplate">
+        <span id="petName">UNHATCHED</span>
+        <span id="stageLabel">EGG</span>
+      </div>
+
+      <div class="meters" aria-label="Cybit condition">
+        <div class="meter"><span>FOOD</span><div class="bar"><i id="hungerBar"></i></div></div>
+        <div class="meter"><span>MOOD</span><div class="bar"><i id="happyBar"></i></div></div>
+        <div class="meter"><span>POWER</span><div class="bar"><i id="strengthBar"></i></div></div>
+        <div class="meter"><span>ENERGY</span><div class="bar"><i id="energyBar"></i></div></div>
+      </div>
+
+      <div class="actions" id="actionGrid">
+        <button data-action="feed"><span>▦</span>FEED</button>
+        <button data-action="train"><span>✦</span>TRAIN</button>
+        <button data-action="clean"><span>♻</span>CLEAN</button>
+        <button data-action="meds"><span>＋</span>MEDS</button>
+        <button data-action="sleep"><span>☾</span>LIGHTS</button>
+        <button data-action="battle"><span>⚔</span>BATTLE</button>
+        <button data-action="stats"><span>▥</span>STATS</button>
+        <button data-action="log"><span>≡</span>LOG</button>
+      </div>
+
+      <div class="hardware-buttons" aria-label="Classic button controls">
+        <button id="btnA" aria-label="Previous">A</button>
+        <button id="btnB" aria-label="Select">B</button>
+        <button id="btnC" aria-label="Back">C</button>
+      </div>
+    </section>
+
+    <section class="ticker" id="ticker">A dormant Cybit egg is waiting for a signal…</section>
+
+    <section class="utility-row">
+      <button id="renameBtn">RENAME</button>
+      <button id="helpBtn">HOW TO PLAY</button>
+      <button id="resetBtn" class="danger">RESET</button>
+    </section>
+  </main>
+
+  <dialog id="modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="modalTitle">CYBITS</h2>
+        <button id="modalClose" aria-label="Close">×</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </dialog>
+
+  <template id="feedTemplate">
+    <div class="choice-grid">
+      <button data-food="meal"><b>DATA MEAL</b><small>+26 food · +2 weight</small></button>
+      <button data-food="snack"><b>BYTE SNACK</b><small>+10 food · +8 mood · +1 weight</small></button>
+    </div>
+  </template>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
